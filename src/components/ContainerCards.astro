@@ -1,0 +1,267 @@
+---
+import { baseUrl } from '@/utils/functions';
+
+const arrayCards = [
+  {
+    title: 'Random Sentence',
+    repo: 'https://github.com/20essentials/project-000-101',
+    webGithub: 'https://20essentials.github.io/project-000-101/',
+    webRender: 'https://project-000-101.onrender.com/',
+    localImage: '/assets/n101.avif',
+    colors: ['#ffbc00', ' #ff0058'],
+    id: '01'
+  },
+  {
+    title: 'Web Screen Prove',
+    repo: 'https://github.com/20essentials/project-000-113',
+    webGithub: 'https://20essentials.github.io/project-000-113/',
+    webRender: 'https://project-000-113.onrender.com/',
+    localImage: '/assets/n113.avif',
+    colors: ['#03a9f4', ' #ff0058'],
+    id: '02'
+  },
+  {
+    title: 'Cap',
+    repo: 'https://github.com/20essentials/project-000-120',
+    webGithub: 'https://20essentials.github.io/project-000-120/',
+    webRender: 'https://project-000-120.onrender.com/',
+    localImage: '/assets/n120.avif',
+    colors: ['#4dff03', ' #00d0ff'],
+    id: '03'
+  },
+  {
+    title: 'Background Overlay',
+    repo: 'https://github.com/20essentials/project-000-128',
+    webGithub: 'https://20essentials.github.io/project-000-128/',
+    webRender: 'https://project-000-128.onrender.com/',
+    localImage: '/assets/n128.avif',
+    colors: ['#a18cd1', '#fbc2eb'], // lavanda + rosa pastel
+    id: '04'
+  },
+  {
+    title: 'Bawls Guarana Intro',
+    repo: 'https://github.com/20essentials/project-000-136',
+    webGithub: 'https://20essentials.github.io/project-000-136/',
+    webRender: 'https://project-000-136.onrender.com/',
+    localImage: '/assets/n136.avif',
+    colors: ['#ff9a9e', '#fad0c4'], // coral + melón claro
+    id: '05'
+  },
+  {
+    title: 'Xrem Prism',
+    repo: 'https://github.com/20essentials/project-000-142',
+    webGithub: 'https://20essentials.github.io/project-000-142/',
+    webRender: 'https://project-000-142.onrender.com/',
+    localImage: '/assets/n142.avif',
+    colors: ['#f6d365', '#fda085'], // amarillo suave + durazno
+    id: '06'
+  },
+  {
+    title: 'Arrastrer Cube',
+    repo: 'https://github.com/20essentials/project-000-149',
+    webGithub: 'https://20essentials.github.io/project-000-149/',
+    webRender: 'https://project-000-149.onrender.com/',
+    localImage: '/assets/n149.avif',
+    colors: ['#84fab0', '#8fd3f4'], // verde menta + azul cielo
+    id: '07'
+  },
+  {
+    title: 'Earth Movement',
+    repo: 'https://github.com/20essentials/project-000-160',
+    webGithub: 'https://20essentials.github.io/project-000-160/',
+    webRender: 'https://project-000-160.onrender.com/',
+    localImage: '/assets/n160.avif',
+    colors: ['#a1c4fd', '#c2e9fb'], // azul claro + celeste hielo
+    id: '08'
+  },
+  {
+    title: 'Sruddle',
+    repo: 'https://github.com/20essentials/project-000-168',
+    webGithub: 'https://20essentials.github.io/project-000-168/',
+    webRender: 'https://project-000-168.onrender.com/',
+    localImage: '/assets/n168.avif',
+    colors: ['#fcb69f', '#ffecd2'], // naranja pálido + vainilla
+    id: '09'
+  },
+  {
+    title: 'Tylm',
+    repo: 'https://github.com/20essentials/project-000-175',
+    webGithub: 'https://20essentials.github.io/project-000-175/',
+    webRender: 'https://project-000-175.onrender.com/',
+    localImage: '/assets/n175.avif',
+    colors: ['#d4fc79', '#96e6a1'], // lima + verde suave
+    id: '10'
+  },
+  {
+    title: 'Smedulick',
+    repo: 'https://github.com/20essentials/project-000-180',
+    webGithub: 'https://20essentials.github.io/project-000-180/',
+    webRender: 'https://project-000-180.onrender.com/',
+    localImage: '/assets/n180.avif',
+    colors: ['#667eea', '#764ba2'], // violeta intenso + índigo
+    id: '11'
+  },
+  {
+    title: 'Background Rim',
+    repo: 'https://github.com/20essentials/project-000-186',
+    webGithub: 'https://20essentials.github.io/project-000-186/',
+    webRender: 'https://project-000-186.onrender.com/',
+    localImage: '/assets/n186.avif',
+    colors: ['#ff758c', '#ff7eb3'], // rosa oscuro + rosa brillante
+    id: '12'
+  },
+  {
+    title: 'Rid',
+    repo: 'https://github.com/20essentials/project-000-189',
+    webGithub: 'https://20essentials.github.io/project-000-189/',
+    webRender: 'https://project-000-189.onrender.com/',
+    localImage: '/assets/n189.avif',
+    colors: ['#89f7fe', '#66a6ff'], // aqua + azul pastel
+    id: '13'
+  },
+  {
+    title: 'Samta',
+    repo: 'https://github.com/20essentials/project-000-192',
+    webGithub: 'https://20essentials.github.io/project-000-192/',
+    webRender: 'https://project-000-192.onrender.com/',
+    localImage: '/assets/n192.avif',
+    colors: ['#ffecd2', '#fcb69f'], // crema + coral suave
+    id: '14'
+  },
+  {
+    title: 'Background XtX',
+    repo: 'https://github.com/20essentials/project-000-197',
+    webGithub: 'https://20essentials.github.io/project-000-197/',
+    webRender: 'https://project-000-197.onrender.com/',
+    localImage: '/assets/n197.avif',
+    colors: ['#43e97b', '#38f9d7'], // verde jade + turquesa claro
+    id: '15'
+  },
+  {
+    title: 'Glowing Button',
+    repo: 'https://github.com/20essentials/project-000-205',
+    webGithub: 'https://20essentials.github.io/project-000-205/',
+    webRender: 'https://project-000-205.onrender.com/',
+    localImage: '/assets/n205.avif',
+    colors: ['#c471f5', '#fa71cd'], // púrpura eléctrico + rosa neón
+    id: '16'
+  },
+  {
+    title: 'Simple Scroll',
+    repo: 'https://github.com/20essentials/project-000-210',
+    webGithub: 'https://20essentials.github.io/project-000-210/',
+    webRender: 'https://project-000-210.onrender.com/',
+    localImage: '/assets/n210.avif',
+    colors: ['#30cfd0', '#330867'], // cian + púrpura profundo
+    id: '17'
+  },
+  {
+    title: 'Stum',
+    repo: 'https://github.com/20essentials/project-000-219',
+    webGithub: 'https://20essentials.github.io/project-000-219/',
+    webRender: 'https://project-000-219.onrender.com/',
+    localImage: '/assets/n219.avif',
+    colors: ['#74ebd5', '#9face6'], // azul claro + lavanda
+    id: '18'
+  },
+  {
+    title: 'Cube Snet',
+    repo: 'https://github.com/20essentials/project-000-226',
+    webGithub: 'https://20essentials.github.io/project-000-226/',
+    webRender: 'https://project-000-226.onrender.com/',
+    localImage: '/assets/n226.avif',
+    colors: ['#e0c3fc', '#8ec5fc'], // violeta claro + azul cielo
+    id: '19'
+  },
+  {
+    title: 'Necaxa',
+    repo: 'https://github.com/20essentials/project-000-235',
+    webGithub: 'https://20essentials.github.io/project-000-235/',
+    webRender: 'https://project-000-235.onrender.com/',
+    localImage: '/assets/n235.avif',
+    colors: ['#f093fb', '#f5576c'], // rosa violeta + rojo coral
+    id: '20'
+  }
+];
+---
+
+<section>
+  {
+    arrayCards.map(
+      ({ id, localImage, repo, title, webGithub, webRender, colors }) => {
+        const [color1, color2] = colors;
+        const img = baseUrl(localImage);
+        return (
+          <a
+            href={repo}
+            title={webRender}
+            class='box'
+            style={{ '--am-bg': `linear-gradient(45deg, ${color1}, ${color2})` }}
+          >
+            <b />
+            <img src={localImage} alt={title} />
+          </a>
+        );
+      }
+    )
+  }
+</section>
+
+<style>
+  section {
+    min-height: 100vh;
+    display: grid;
+    padding: 2.2vmax;
+    gap: 2.2vmax;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(17vmax, 1fr));
+
+    .box {
+      position: relative;
+      width: 16.27vmax;
+      height: 23.44vmax;
+      border-radius: 1.3vmax;
+      background-color: #eee;
+
+      img {
+        position: absolute;
+        width: 80%;
+        height: 86%;
+        object-fit: cover;
+        z-index: 3;
+        object-position: center;
+        border-radius: inherit;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: var(--am-bg);
+      }
+
+      &::before {
+      }
+
+      &::after {
+        filter: blur(1vmax);
+      }
+
+      b {
+        position: absolute;
+        display: block;
+        inset: 0.26vmax;
+        border-radius: 1.04vmax;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+      }
+    }
+  }
+</style>

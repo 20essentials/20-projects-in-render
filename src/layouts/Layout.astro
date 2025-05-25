@@ -1,0 +1,41 @@
+---
+import '@/styles/global.css';
+import { baseUrl } from '@/utils/functions';
+const favicon = baseUrl('/assets/favicon.webp');
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href={favicon} />
+    <title>20 Projects In Render</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<div class='background-div'></div>
+
+<style>
+  .background-div {
+    position: fixed;
+    pointer-events: none;
+    inset: 0;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6rem 1.25rem;
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+  }
+</style>
+
+<!-- <script>
+  window.addEventListener('resize', e => {
+    document.title = `${window.innerWidth}`;
+  });
+</script>
+ -->

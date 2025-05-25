@@ -1,0 +1,85 @@
+<section class='contenedor'></section>
+
+<style>
+  .contenedor {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    .puntin {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      filter: opacity(0);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 4px;
+        background-color: #0f0;
+        border-radius: 50%;
+        box-shadow:
+          0 40px 0 #0f0,
+          0 0 5px #0f0,
+          0 0 15px #0f0;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 4px;
+        height: 4px;
+        background-color: #0f0;
+        border-radius: 50%;
+        box-shadow:
+          0 -40px 0 #0f0,
+          0 0 5px #0f0,
+          0 0 15px #0f0;
+      }
+    }
+  }
+</style>
+
+<script>
+  import { $, $$ } from "@/utils/functions";
+
+  const $contenedor = $(".contenedor");
+  for (let i = 0; i < 500; i++) {
+    let elemento = document.createElement("div");
+    elemento.classList.add("puntin");
+    $contenedor?.appendChild(elemento);
+  }
+
+  function handleMove(x: number, y: number) {
+    $$(".puntin").forEach((element) => {
+      let dx = element.offsetLeft - x;
+      let dy = element.offsetTop - y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+      let score = Math.exp(dist * -0.01);
+      element.style.transform = `scale(${score * 4}) rotate(${score * 180}deg)`;
+      element.style.opacity = `${score * 2}`;
+      element.style.filter = `hue-rotate(${Math.random() * 720}deg)`;
+    });
+  }
+
+  // Mouse para escritorio
+  document.addEventListener("mousemove", (e) => {
+    handleMove(e.pageX, e.pageY);
+  });
+
+  // Touch para móviles
+  document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    handleMove(touch.pageX, touch.pageY);
+  }, { passive: true });
+</script>
+
